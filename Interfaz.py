@@ -1,19 +1,22 @@
-class Interfaz:
-    def __init__(self):
-        self.polinomio = []
+import tkinter as tk
 
-    def agregar_termino(self, coeficiente):
-        self.polinomio.append(coeficiente)
+def calcular_polinomio():
+    # Aquí puedes agregar la lógica para calcular el polinomio
+    pass
 
-    def modificar_termino(self, indice, nuevo_coeficiente):
-        if indice >= 0 and indice < len(self.polinomio):
-            self.polinomio[indice] = nuevo_coeficiente
-        else:
-            print("¡Índice inválido!")
+# Crear la ventana principal
+ventana = tk.Tk()
+ventana.title("Interfaz de Polinomio")
 
-    def obtener_valor(self, x):
-        valor = 0
-        for i in range(len(self.polinomio)):
-            valor += self.polinomio[i] * (x ** i)
-        return valor
+# Crear los elementos de la interfaz
+etiqueta = tk.Label(ventana, text="Ingrese los coeficientes del polinomio:")
+etiqueta.pack()
 
+entrada = tk.Entry(ventana)
+entrada.pack()
+
+boton = tk.Button(ventana, text="Calcular", command=calcular_polinomio)
+boton.pack()
+
+# Iniciar el bucle de eventos
+ventana.mainloop()

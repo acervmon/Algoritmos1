@@ -1,12 +1,50 @@
-if __name__ == "__main__":
-    from Interfaz import Interfaz
-    from Polinomio import polinomio1, polinomio2
-    from nodo import nodo
-    from Realizador import sumar, multiplicar, restar, dividir, mostrar
+import polinomio
+from polinomio import Polinomio
+def menu():
+    print("Seleccione una operación:")
+    print("1. Suma")
+    print("2. Resta")
+    print("3. Multiplicación")
+    print("4. División")
+    print("5. Salir")
 
-    print("Polinomio 1:", mostrar(polinomio1))
-    print("Polinomio 2:", mostrar(polinomio2))
-    print("Suma:", mostrar(sumar(polinomio1, polinomio2)))
-    print("Resta:", mostrar(restar(polinomio1, polinomio2)))
-    print("Multiplicación:", mostrar(multiplicar(polinomio1, polinomio2)))
-    print("División:", mostrar(dividir(polinomio1, polinomio2)))
+def main():
+    print("Defina el Polinomio 1")
+    polinomio1 = Polinomio()
+
+    print("Defina el Polinomio 2")
+    polinomio2 = Polinomio()
+
+    print("Polinomio 1:")
+    polinomio1.mostrar()
+
+    print("Polinomio 2:")
+    polinomio2.mostrar()
+
+    while True:
+        menu()
+        opcion = int(input("Opción: "))
+
+        if opcion == 1:
+            resultado = Polinomio.sumar(polinomio1, polinomio2)
+            print("Resultado:")
+            resultado.mostrar()
+        elif opcion == 2:
+            resultado = Polinomio.restar(polinomio1, polinomio2)
+            print("Resultado:")
+            resultado.mostrar()
+        elif opcion == 3:
+            resultado = Polinomio.multiplicar(polinomio1, polinomio2)
+            print("Resultado:")
+            resultado.mostrar()
+        elif opcion == 4:
+            resultado = Polinomio.dividir(polinomio1, polinomio2)
+            print("Resultado:")
+            resultado.mostrar()
+        elif opcion == 5:
+            break
+        else:
+            print("Opción no válida. Intente nuevamente.")
+
+if __name__ == "__main__":
+    main()
